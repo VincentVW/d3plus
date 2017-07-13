@@ -86,7 +86,7 @@ module.exports = function(vars, id, length, extras, children, depth) {
 
     if (validObject(value)) {
       tooltip_data.push({
-        "name": vars.format.value(key),
+        "name": typeof(key) === 'function' ? vars.format.value(value.name) : vars.format.value(key),
         "value": vars.format.value(value.value, {"key": value.key, "vars": vars}),
         "group": group
       })
